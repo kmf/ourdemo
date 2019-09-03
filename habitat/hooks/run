@@ -1,0 +1,12 @@
+#!/bin/bash
+
+echo "HELLO"
+
+exec 2>&1
+
+echo "Starting Apache Tomcat"
+
+export JAVA_HOME={{pkgPathFor "core/jre8"}}
+export TOMCAT_HOME={{pkg.svc_var_path}}/tc
+
+exec ${TOMCAT_HOME}/bin/catalina.sh run
